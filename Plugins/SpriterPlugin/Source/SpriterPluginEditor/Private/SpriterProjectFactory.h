@@ -2,15 +2,13 @@
 
 #pragma once
 
-#include "Factories/Factory.h"
-#include "UnrealEd.h"
 #include "SpriterProjectFactory.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SPRITERPLUGIN_API USpriterProjectFactory : public UFactory
+class SPRITERPLUGINEDITOR_API USpriterProjectFactory : public UFactory
 {
 	GENERATED_BODY()
 

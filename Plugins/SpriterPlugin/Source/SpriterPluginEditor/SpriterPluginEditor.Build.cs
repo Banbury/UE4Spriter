@@ -3,7 +3,7 @@
 using UnrealBuildTool;
 using System.IO;
 
-public class SpriterPlugin : ModuleRules
+public class SpriterPluginEditor : ModuleRules
 {
     private string ModulePath
     {
@@ -15,12 +15,12 @@ public class SpriterPlugin : ModuleRules
         get { return Path.GetFullPath(Path.Combine(ModulePath, "../../ThirdParty/")); }
     }
 
-    public SpriterPlugin(TargetInfo Target)
+    public SpriterPluginEditor(TargetInfo Target)
 	{
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"SpriterPlugin/Public"
+				"SpriterPluginEditor/Public"
 				// ... add public include paths required here ...
 			}
 			);
@@ -28,16 +28,18 @@ public class SpriterPlugin : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"SpriterPlugin/Private",
+				"SpriterPluginEditor/Private",
+                "SpriterPlugin/Private",
 				// ... add other private include paths required here ...
 			}
-			);
+            );
 			
 		
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
 				"Core",
+                "SpriterPlugin",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -55,6 +57,8 @@ public class SpriterPlugin : ModuleRules
                 "Projects",
                 "RHI",
                 "RenderCore",
+                "UnrealEd",
+                "AssetTools",
 				// ... add private dependencies that you statically link with here ...	
 			}
             );

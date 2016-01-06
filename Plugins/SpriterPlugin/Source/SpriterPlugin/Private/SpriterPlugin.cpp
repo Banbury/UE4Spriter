@@ -1,18 +1,11 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
 #include "SpriterPluginPrivatePCH.h"
-#include "AssetRegistryModule.h"
-#include "AssetToolsModule.h"
-#include "AssetTypeActions_SpriterProject.h"
 
 #define LOCTEXT_NAMESPACE "FSpriterPluginModule"
 
 void FSpriterPluginModule::StartupModule()
 {
-	IAssetTools& AssetToolsModule = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-	AssetToolsModule.RegisterAssetTypeActions(MakeShareable(new FAssetTypeActions_SpriterProject));
-
-
 }
 
 void FSpriterPluginModule::ShutdownModule()

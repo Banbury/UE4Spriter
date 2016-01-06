@@ -3,12 +3,11 @@
 #pragma once
 
 #include "AssetTypeActions_Base.h"
-#include "Editor/UnrealEd/Classes/Settings/EditorLoadingSavingSettings.h"
 
 /**
  * 
  */
-class SPRITERPLUGIN_API FAssetTypeActions_SpriterProject : public FAssetTypeActions_Base
+class SPRITERPLUGINEDITOR_API FAssetTypeActions_SpriterProject : public FAssetTypeActions_Base
 {
 public:
 	// IAssetTypeActions Implementation

@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "SpriterPluginPrivatePCH.h"
+#include "SpriterPluginEditorPrivatePCH.h"
 #include "SpriterProjectFactory.h"
 #include "SpriterProject.h"
 #include "AssetToolsModule.h"

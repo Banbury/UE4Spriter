@@ -13,8 +13,12 @@
 	"Modules": [
 		{
 			"Name": "SpriterPlugin",
-			"Type": "Developer",
+			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+        {
+			"Name" : "SpriterPluginEditor",
+			"Type" : "Editor"
 		}
 	],
 	"EnabledByDefault": false,
