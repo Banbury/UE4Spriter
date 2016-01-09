@@ -7,6 +7,7 @@
 #include "AssetRegistryModule.h"
 #include "PackageTools.h"
 #include "ObjectTools.h"
+#include "CoreMisc.h"
 
 
 #define LOCTEXT_NAMESPACE "SpriterProject"
@@ -59,13 +60,78 @@ UObject* USpriterProjectFactory::FactoryCreateText(UClass* InClass, UObject* InP
 	UObject *OuterForFrame = CreatePackage(nullptr, *packageName);
 
 	result = NewObject<USpriterProject>(OuterForFrame, *assetName, Flags);
-	result->Content = FString(fileContent);
-
-	FAssetRegistryModule::AssetCreated(result);
+	if (result != NULL)
+	{
+		result->Content = FString(fileContent);
+		result->AssetImportData->Update(CurrentFilename);
+		FAssetRegistryModule::AssetCreated(result);
+	}
 
 	FEditorDelegates::OnAssetPostImport.Broadcast(this, result);
 	return result;
 
 }
+
+bool USpriterProjectFactory::CanReimport(UObject* Obj, TArray<FString>& OutFilenames)
+{
+	USpriterProject* project = Cast<USpriterProject>(Obj);
+	if (project && project->AssetImportData)
+	{
+		project->AssetImportData->ExtractFilenames(OutFilenames);
+		return true;
+	}
+	return false;
+}
+
+void USpriterProjectFactory::SetReimportPaths(UObject* Obj, const TArray<FString>& NewReimportPaths)
+{
+	USpriterProject* project = Cast<USpriterProject>(Obj);
+	if (project && ensure(NewReimportPaths.Num() == 1))
+	{
+		project->AssetImportData->UpdateFilenameOnly(NewReimportPaths[0]);
+	}
+}
+
+EReimportResult::Type USpriterProjectFactory::Reimport(UObject* Obj)
+{
+	USpriterProject* project = Cast<USpriterProject>(Obj);
+	if (!project)
+	{
+		return EReimportResult::Failed;
+	}
+
+	const FString filename = project->AssetImportData->GetFirstFilename();
+	if (!filename.Len() || IFileManager::Get().FileSize(*filename) == INDEX_NONE)
+	{
+		return EReimportResult::Failed;
+	}
+
+	FString content;
+	if (FFileHelper::LoadFileToString(content, *filename))
+	{
+		project->Content = content;
+		project->AssetImportData->Update(filename);
+
+		if (project->GetOuter())
+		{
+			project->GetOuter()->MarkPackageDirty();
+		}
+		else
+		{
+			project->MarkPackageDirty();
+		}
+		return EReimportResult::Succeeded;
+	}
+	else
+	{
+		return EReimportResult::Failed;
+	}
+}
+
+int32 USpriterProjectFactory::GetPriority() const
+{
+	return ImportPriority;
+}
+
 
 #undef LOCTEXT_NAMESPACE
