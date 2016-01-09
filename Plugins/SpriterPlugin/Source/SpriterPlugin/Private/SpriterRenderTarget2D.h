@@ -29,6 +29,10 @@ public:
 	UPROPERTY()
 	UCanvas *canvas;
 
+	void applyCharacterMap(FString mapName);
+	void removeCharacterMap(FString mapName);
+	void removeAllCharacterMaps();
+
 protected:
 	UPROPERTY()
 	TWeakObjectPtr<UWorld> World;

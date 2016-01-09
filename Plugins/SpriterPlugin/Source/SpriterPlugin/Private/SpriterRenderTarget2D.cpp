@@ -134,3 +134,27 @@ void USpriterRenderTarget2D::render(float deltaTime)
 		entity->render();
 	}
 }
+
+void USpriterRenderTarget2D::applyCharacterMap(FString mapName)
+{
+	if (entity != NULL)
+	{
+		entity->applyCharacterMap(TCHAR_TO_ANSI(*mapName));
+	}
+}
+
+void USpriterRenderTarget2D::removeCharacterMap(FString mapName)
+{
+	if (entity != NULL)
+	{
+		entity->removeCharacterMap(TCHAR_TO_ANSI(*mapName));
+	}
+}
+
+void USpriterRenderTarget2D::removeAllCharacterMaps()
+{
+	if (entity != NULL)
+	{
+		entity->removeAllCharacterMaps();
+	}
+}

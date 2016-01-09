@@ -57,3 +57,26 @@ void USpriterComponent::CreateTexture()
 	canvas->UpdateResource(0);
 }
 
+void USpriterComponent::ApplyCharacterMap(FString mapName)
+{
+	if (canvas != NULL)
+	{
+		canvas->applyCharacterMap(mapName);
+	}
+}
+
+void USpriterComponent::RemoveCharacterMap(FString mapName)
+{
+	if (canvas != NULL)
+	{
+		canvas->removeCharacterMap(mapName);
+	}
+}
+
+void USpriterComponent::RemoveAllCharacterMaps()
+{
+	if (canvas != NULL)
+	{
+		canvas->removeAllCharacterMaps();
+	}
+}

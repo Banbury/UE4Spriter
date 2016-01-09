@@ -37,6 +37,16 @@ public:
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void ApplyCharacterMap(FString mapName);
+
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void RemoveCharacterMap(FString mapName);
+
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void RemoveAllCharacterMaps();
+
+
 private:
 	UPROPERTY(Transient)
 	USpriterRenderTarget2D *canvas;
