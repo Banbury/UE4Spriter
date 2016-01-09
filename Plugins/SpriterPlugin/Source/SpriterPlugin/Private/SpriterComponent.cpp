@@ -81,6 +81,15 @@ void USpriterComponent::RemoveAllCharacterMaps()
 	}
 }
 
+void USpriterComponent::SetAnimation(FString name, float blendTime)
+{
+	if (canvas != NULL)
+	{
+		canvas->setAnimation(name, blendTime);
+		Animation = name;
+	}
+}
+
 void USpriterComponent::PlayAnimation()
 {
 	if (canvas != NULL)

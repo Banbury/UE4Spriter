@@ -23,12 +23,11 @@ public:
 	void GetSize(int32& Width, int32& Height);
 	virtual UWorld* GetWorld() const override;
 
-	void loadModel(FString path, FString imagePath);
-	void setAnimation(FString name);
-
 	UPROPERTY()
 	UCanvas *canvas;
 
+	void loadModel(FString path, FString imagePath);
+	void setAnimation(FString name, float blendTime=0);
 	void applyCharacterMap(FString mapName);
 	void removeCharacterMap(FString mapName);
 	void removeAllCharacterMaps();

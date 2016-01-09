@@ -47,6 +47,9 @@ public:
 	void RemoveAllCharacterMaps();
 
 	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void SetAnimation(FString name, float blendTime);
+
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
 	void PlayAnimation();
 
 	UFUNCTION(BlueprintCallable, Category = "Spriter")

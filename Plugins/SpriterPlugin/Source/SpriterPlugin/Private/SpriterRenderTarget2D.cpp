@@ -117,11 +117,18 @@ void USpriterRenderTarget2D::loadModel(FString path, FString imagePath)
 	}
 }
 
-void USpriterRenderTarget2D::setAnimation(FString name)
+void USpriterRenderTarget2D::setAnimation(FString name, float blendTime)
 {
 	if (entity != NULL && !name.Equals(currentAnimation))
 	{
-		entity->setCurrentAnimation(TCHAR_TO_ANSI(*name));
+		if (blendTime > 0)
+		{
+			entity->setCurrentAnimation(TCHAR_TO_ANSI(*name), blendTime);
+		}
+		else
+		{
+			entity->setCurrentAnimation(TCHAR_TO_ANSI(*name));
+		}
 		currentAnimation = name;
 	}
 }
