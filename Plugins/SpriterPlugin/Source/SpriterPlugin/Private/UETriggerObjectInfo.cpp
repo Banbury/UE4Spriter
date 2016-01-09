@@ -8,4 +8,5 @@ UETriggerObjectInfo::UETriggerObjectInfo(FString name) : TriggerObjectInfo()
 
 void UETriggerObjectInfo::playTrigger()
 {
+	TriggerObjectInfo::playTrigger();
 }

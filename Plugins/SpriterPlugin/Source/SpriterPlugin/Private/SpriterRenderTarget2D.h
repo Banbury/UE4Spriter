@@ -33,6 +33,7 @@ public:
 	void removeAllCharacterMaps();
 	void startPlayback();
 	void stopPlayBack();
+	uint32 getTriggerCount(FString name);
 
 protected:
 	UPROPERTY()

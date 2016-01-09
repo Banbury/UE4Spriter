@@ -55,6 +55,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Spriter")
 	void StopAnimation();
 
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Spriter")
+	int32 GetTriggerCount(FString name);
+
 private:
 	UPROPERTY(Transient)
 	USpriterRenderTarget2D *canvas;

@@ -105,3 +105,12 @@ void USpriterComponent::StopAnimation()
 		canvas->stopPlayBack();
 	}
 }
+
+int32 USpriterComponent::GetTriggerCount(FString name)
+{
+	if (canvas != NULL)
+	{
+		return canvas->getTriggerCount(name);
+	}
+	return 0;
+}

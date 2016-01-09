@@ -181,3 +181,12 @@ void USpriterRenderTarget2D::stopPlayBack()
 		entity->pausePlayback();
 	}
 }
+
+uint32 USpriterRenderTarget2D::getTriggerCount(FString name)
+{
+	if (entity != NULL)
+	{
+		return entity->getTriggerObject(TCHAR_TO_ANSI(*name))->getTriggerCount();
+	}
+	return 0;
+}
