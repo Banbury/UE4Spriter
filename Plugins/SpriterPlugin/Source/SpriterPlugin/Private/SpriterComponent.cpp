@@ -80,3 +80,19 @@ void USpriterComponent::RemoveAllCharacterMaps()
 		canvas->removeAllCharacterMaps();
 	}
 }
+
+void USpriterComponent::PlayAnimation()
+{
+	if (canvas != NULL)
+	{
+		canvas->startPlayback();
+	}
+}
+
+void USpriterComponent::StopAnimation()
+{
+	if (canvas != NULL)
+	{
+		canvas->stopPlayBack();
+	}
+}

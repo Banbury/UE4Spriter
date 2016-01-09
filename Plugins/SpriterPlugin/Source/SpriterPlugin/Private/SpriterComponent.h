@@ -46,6 +46,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Spriter")
 	void RemoveAllCharacterMaps();
 
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void PlayAnimation();
+
+	UFUNCTION(BlueprintCallable, Category = "Spriter")
+	void StopAnimation();
 
 private:
 	UPROPERTY(Transient)

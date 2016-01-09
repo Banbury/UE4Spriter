@@ -158,3 +158,19 @@ void USpriterRenderTarget2D::removeAllCharacterMaps()
 		entity->removeAllCharacterMaps();
 	}
 }
+
+void USpriterRenderTarget2D::startPlayback()
+{
+	if (entity != NULL)
+	{
+		entity->startResumePlayback();
+	}
+}
+
+void USpriterRenderTarget2D::stopPlayBack()
+{
+	if (entity != NULL)
+	{
+		entity->pausePlayback();
+	}
+}

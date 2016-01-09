@@ -32,6 +32,8 @@ public:
 	void applyCharacterMap(FString mapName);
 	void removeCharacterMap(FString mapName);
 	void removeAllCharacterMaps();
+	void startPlayback();
+	void stopPlayBack();
 
 protected:
 	UPROPERTY()
